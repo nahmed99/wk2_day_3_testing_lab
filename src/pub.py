@@ -21,18 +21,22 @@ class Pub:
                 return drink
 
 
-    def add_money_to_till(self, drink):
-        self.till += drink.price
-        print(" alsdjalsjdldjaldksjalsdkj",self.till)
-
-
     def get_till_total(self):
         return self.till
 
 
+    def add_money_to_till(self, drink):
+        self.till += drink.price
 
-    #def take_money_from_customer(self, customer, drink):
-    #    customer.wallet -= drink.price
 
-    def sell_drink_to_customer(self, drink_name):
-        pass
+    def take_money_from_customer(self, customer, drink):
+        customer.wallet -= drink.price
+
+
+    def sell_drink_to_customer(self, drink_name, customer):
+        drink = self.find_drink_by_name(drink_name)
+        if drink != None:
+            self.take_money_from_customer(customer, drink)
+            self.add_money_to_till(drink)
+        
+    

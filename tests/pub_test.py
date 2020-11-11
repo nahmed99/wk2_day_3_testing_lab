@@ -1,11 +1,13 @@
 import unittest
 from src.pub import Pub
 from src.drink import Drink
+from src.customer import Customer
 
 class TestPub(unittest.TestCase):
     def setUp(self):
         self.pub = Pub("The Red Lion", 50.0)
         self.drink_1 = Drink("tea", 0.95)
+        self.customer = Customer("Charlie", 60.0)
         
     
     def test_pub_has_name(self):
@@ -43,3 +45,17 @@ class TestPub(unittest.TestCase):
         self.pub.add_money_to_till(self.drink_1)
         self.assertEqual(50.95, self.pub.get_till_total())
 
+
+    def test_take_money_from_customer(self):
+        self.pub.take_money_from_customer(self.customer, self.drink_1)
+        self.assertEqual(59.05, self.customer.wallet)
+
+
+    def test_sell_drink_to_customer(self):
+        self.pub.add_drink(Drink("champagne", 30.0))
+        self.pub.add_drink(Drink("lemonade", 1.95))
+        self.pub.add_drink(Drink("negroni", 7.95))
+
+        self.pub.sell_drink_to_customer("negroni", self.customer)
+        self.assertEqual(52.05, self.customer.wallet)
+        self.assertEqual(57.95, self.pub.get_till_total())
