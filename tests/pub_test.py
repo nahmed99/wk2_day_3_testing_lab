@@ -59,3 +59,13 @@ class TestPub(unittest.TestCase):
         self.pub.sell_drink_to_customer("negroni", self.customer)
         self.assertEqual(52.05, self.customer.wallet)
         self.assertEqual(57.95, self.pub.get_till_total())
+
+
+    def test_not_sell_drink_to_customer(self):
+        self.pub.add_drink(Drink("champagne", 30.0))
+        self.pub.add_drink(Drink("lemonade", 1.95))
+        self.pub.add_drink(Drink("negroni", 7.95))
+
+        self.pub.sell_drink_to_customer("tea", self.customer)
+        self.assertEqual(60.0, self.customer.wallet)
+        self.assertEqual(50.0, self.pub.get_till_total())
