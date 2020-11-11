@@ -1,7 +1,5 @@
 import unittest
 from src.pub import Pub
-#from src.bus_stop import BusStop
-#from src.person import Person
 
 class TestPub(unittest.TestCase):
     def setUp(self):
