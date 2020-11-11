@@ -6,5 +6,7 @@ class Pub:
 
         self.drinks = []
 
-        
 
+
+    def drinks_list_length(self):
+        return len(self.drinks)
