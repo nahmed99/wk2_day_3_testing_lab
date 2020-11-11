@@ -69,3 +69,7 @@ class TestPub(unittest.TestCase):
         self.pub.sell_drink_to_customer("tea", self.customer)
         self.assertEqual(60.0, self.customer.wallet)
         self.assertEqual(50.0, self.pub.get_till_total())
+
+
+    def test_check_age(self):
+        self.assertEqual(True, self.pub.check_age(self.customer))

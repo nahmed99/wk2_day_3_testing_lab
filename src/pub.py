@@ -39,4 +39,7 @@ class Pub:
             self.take_money_from_customer(customer, drink)
             self.add_money_to_till(drink)
         
+
+    def check_age(self, customer):
+        return customer.age >= 18
     
