@@ -10,7 +10,7 @@ class TestDrink(unittest.TestCase):
         self.assertEqual("flat white", self.drink.name)
 
 
-    def test_pub_has_price(self):
+    def test_drink_has_price(self):
         self.assertEqual(2.5, self.drink.price)
 
 
