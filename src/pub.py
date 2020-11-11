@@ -35,11 +35,13 @@ class Pub:
 
 
     def sell_drink_to_customer(self, drink_name, customer):
-        drink = self.find_drink_by_name(drink_name)
-        if drink != None:
-            self.take_money_from_customer(customer, drink)
-            self.add_money_to_till(drink)
-            customer.add_drunkeness_to_customer(drink)
+
+        if self.check_age(customer) and not self.check_drunkenness(customer):
+            drink = self.find_drink_by_name(drink_name)
+            if drink != None:
+                self.take_money_from_customer(customer, drink)
+                self.add_money_to_till(drink)
+                customer.add_drunkeness_to_customer(drink)
         
 
     def check_age(self, customer):
