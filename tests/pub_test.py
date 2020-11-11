@@ -7,7 +7,7 @@ class TestPub(unittest.TestCase):
     def setUp(self):
         self.pub = Pub("The Red Lion", 50.0)
         self.drink_1 = Drink("tea", 0.95)
-        self.customer = Customer("Charlie", 60.0)
+        self.customer = Customer("Charlie", 60.0, 25)
         
     
     def test_pub_has_name(self):
