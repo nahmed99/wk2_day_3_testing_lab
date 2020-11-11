@@ -7,7 +7,7 @@ class TestPub(unittest.TestCase):
     def setUp(self):
         self.pub = Pub("The Red Lion", 50.0)
         self.drink_1 = Drink("tea", 0.95, 0)
-        self.customer = Customer("Charlie", 60.0, 25)
+        self.customer = Customer("Charlie", 60.0, 25, 4)
 
 
     def creat_drinks(self):
@@ -18,8 +18,6 @@ class TestPub(unittest.TestCase):
     
     def test_pub_has_name(self):
         self.assertEqual("The Red Lion", self.pub.name)
-
-
 
 
     def test_pub_has_till(self):
@@ -60,6 +58,7 @@ class TestPub(unittest.TestCase):
         self.pub.sell_drink_to_customer("negroni", self.customer)
         self.assertEqual(52.05, self.customer.wallet)
         self.assertEqual(57.95, self.pub.get_till_total())
+        self.assertEqual(24, self.customer.drunkenness)
 
 
     def test_not_sell_drink_to_customer(self):
