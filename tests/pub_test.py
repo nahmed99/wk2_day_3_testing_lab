@@ -8,6 +8,7 @@ class TestPub(unittest.TestCase):
         self.pub = Pub("The Red Lion", 50.0)
         self.drink_1 = Drink("tea", 0.95, 0)
         self.customer = Customer("Charlie", 60.0, 25, 4)
+        self.customer2 = Customer("Benny", 60.0, 17, 2)
 
 
     def creat_drinks(self):
@@ -71,3 +72,9 @@ class TestPub(unittest.TestCase):
 
     def test_check_age(self):
         self.assertEqual(True, self.pub.check_age(self.customer))
+        self.assertEqual(False, self.pub.check_age(self.customer2))
+
+
+    def test_check_drunkenness(self):
+        self.assertEqual(True, self.pub.check_drunkenness(self.customer))
+        self.assertEqual(False, self.pub.check_drunkenness(self.customer2))
